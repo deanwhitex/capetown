@@ -1,0 +1,736 @@
+<title>Cape Town Villa Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;500;700&display=swap">
+
+<style>
+  :root {
+    --ground: #F3F5F1;
+    --surface: #FFFFFF;
+    --surface-2: #EAEDE6;
+    --ink: #181C1B;
+    --ink-soft: #586160;
+    --ink-faint: #7C8583;
+    --line: #D9DED6;
+    --line-strong: #B9C1B7;
+    --accent: #9E2B4E;
+    --accent-ink: #9E2B4E;
+    --accent-wash: #F6E7EB;
+    --sea: #2C5A61;
+    --shadow: 0 1px 2px rgba(24, 28, 27, .05), 0 12px 28px -18px rgba(24, 28, 27, .35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #111413;
+      --surface: #191D1C;
+      --surface-2: #212624;
+      --ink: #ECEFE9;
+      --ink-soft: #A0A9A5;
+      --ink-faint: #7E8783;
+      --line: #2B312F;
+      --line-strong: #3C433F;
+      --accent: #E4849D;
+      --accent-ink: #EFA0B4;
+      --accent-wash: #2E1F26;
+      --sea: #7DB2B7;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 30px -20px rgba(0, 0, 0, .8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #111413;
+    --surface: #191D1C;
+    --surface-2: #212624;
+    --ink: #ECEFE9;
+    --ink-soft: #A0A9A5;
+    --ink-faint: #7E8783;
+    --line: #2B312F;
+    --line-strong: #3C433F;
+    --accent: #E4849D;
+    --accent-ink: #EFA0B4;
+    --accent-wash: #2E1F26;
+    --sea: #7DB2B7;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 30px -20px rgba(0, 0, 0, .8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Karla", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding-inline: 22px;
+    padding-block: 0 72px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    padding-block: 56px 40px;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 22px;
+  }
+
+  h1 {
+    font-family: "Bodoni Moda", "Didot", "Times New Roman", serif;
+    font-weight: 600;
+    font-size: clamp(38px, 7.2vw, 66px);
+    line-height: 1.02;
+    letter-spacing: -.012em;
+    text-wrap: balance;
+    margin: 0 0 20px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent-ink);
+  }
+
+  .standfirst {
+    max-width: 58ch;
+    color: var(--ink-soft);
+    font-size: 17px;
+    margin: 0 0 32px;
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+    margin: 0;
+  }
+
+  .fact { display: flex; flex-direction: column; gap: 4px; }
+
+  .fact dt {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .fact dd {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- chapters ---------- */
+
+  .leg { padding-block: 52px 8px; }
+
+  .leg-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 18px;
+    margin-bottom: 26px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .leg-dates {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .03em;
+    color: var(--sea);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .leg-title {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-weight: 600;
+    font-size: clamp(22px, 3.4vw, 28px);
+    margin: 0;
+    flex: 1 1 260px;
+  }
+
+  .leg-note {
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- feature villa ---------- */
+
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    padding: 34px clamp(20px, 4vw, 40px) 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 34px 48px;
+    align-items: start;
+  }
+
+  .villa-name {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-weight: 600;
+    font-size: clamp(26px, 4.4vw, 38px);
+    line-height: 1.08;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+
+  .locale {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 18px;
+  }
+
+  .blurb { margin: 0 0 20px; color: var(--ink-soft); max-width: 62ch; }
+
+  .specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+  }
+
+  .specs li {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+    border-radius: 2px;
+    padding: 4px 10px;
+  }
+
+  .view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-ink);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+
+  .view:hover { color: var(--ink); }
+  .view .arrow { font-family: "IBM Plex Mono", monospace; font-weight: 400; }
+
+  /* ---------- price block ---------- */
+
+  .price {
+    border-left: 1px solid var(--line);
+    padding-left: 28px;
+  }
+
+  .price-row + .price-row { margin-top: 20px; }
+
+  .price-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 4px;
+  }
+
+  .price-figure {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 30px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  .price-figure .unit {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-faint);
+    letter-spacing: 0;
+  }
+
+  .price-figure.total { color: var(--accent-ink); }
+
+  .badge {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: var(--accent-ink);
+    background: var(--accent-wash);
+    border-radius: 2px;
+    padding: 4px 9px;
+  }
+
+  /* ---------- option grid ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .options legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  .option {
+    position: relative;
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 24px 24px 22px;
+    cursor: pointer;
+    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+
+  .option:hover { border-color: var(--line-strong); }
+
+  .option input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .option:has(input:checked) {
+    border-color: var(--accent);
+    box-shadow: var(--shadow), inset 3px 0 0 var(--accent);
+  }
+
+  .option:has(input:focus-visible) {
+    outline: 2px solid var(--sea);
+    outline-offset: 3px;
+  }
+
+  .option-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .option .villa-name { font-size: clamp(21px, 3vw, 25px); margin-bottom: 6px; }
+  .option .locale { margin-bottom: 0; }
+  .option .blurb { font-size: 14.5px; margin-bottom: 16px; }
+  .option .specs { margin-bottom: 18px; }
+
+  .tick {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-top: 6px;
+  }
+
+  .option:has(input:checked) .tick {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .tick span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  .option:has(input:checked) .tick span { background: var(--surface); }
+
+  .option-rates {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 22px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .rate-nightly {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 24px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rate-nightly .unit {
+    font-family: "Karla", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-faint);
+  }
+
+  .rate-week {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rate-week sup { color: var(--accent-ink); font-size: 10px; }
+
+  /* ---------- total panel ---------- */
+
+  .tally {
+    margin-top: 30px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 26px clamp(20px, 4vw, 34px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 34px;
+    align-items: end;
+  }
+
+  .tally h3 {
+    grid-column: 1 / -1;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+
+  .tally-line { display: flex; flex-direction: column; gap: 3px; }
+
+  .tally-line .k {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .tally-line .v {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 24px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tally-line.grand .v { font-size: 32px; color: var(--accent-ink); }
+  .tally-line.grand .k { color: var(--ink); font-weight: 700; }
+
+  /* ---------- notes ---------- */
+
+  .notes {
+    margin-top: 56px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .notes h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 16px;
+  }
+
+  .notes ul {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 10px;
+    max-width: 72ch;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+
+  .notes sup { color: var(--accent-ink); }
+
+  @media (max-width: 760px) {
+    .feature { grid-template-columns: 1fr; gap: 26px; }
+    .price {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding-left: 0;
+      padding-top: 22px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Villa proposal &middot; Cape Town &middot; Summer 2026/27</p>
+    <h1>Twenty-six nights on the <em>Atlantic Seaboard</em></h1>
+    <p class="standfirst">
+      Two consecutive stays, from New Year in Camps Bay through to the end of January.
+      The first leg is held at The Villa at Camps Bay; the second week is a choice between
+      four properties across Camps Bay, Llandudno and Constantia.
+    </p>
+    <dl class="facts">
+      <div class="fact"><dt>Arrival</dt><dd>30 Dec 2026</dd></div>
+      <div class="fact"><dt>Departure</dt><dd>25 Jan 2027</dd></div>
+      <div class="fact"><dt>Total nights</dt><dd>26</dd></div>
+      <div class="fact"><dt>Currency</dt><dd>ZAR (R)</dd></div>
+    </dl>
+  </header>
+
+  <!-- ===== Leg one ===== -->
+  <section class="leg">
+    <div class="leg-head">
+      <span class="leg-dates">30 Dec 2026 &ndash; 18 Jan 2027</span>
+      <h2 class="leg-title">First leg &mdash; 19 nights</h2>
+      <span class="leg-note">One property, rate confirmed</span>
+    </div>
+
+    <article class="feature">
+      <div>
+        <h3 class="villa-name">The Villa at Camps Bay</h3>
+        <p class="locale">Camps Bay &middot; 10 bedrooms</p>
+        <p class="blurb">
+          A luxurious, recently renovated ten-bedroom villa a short walk from Beta Beach and
+          minutes from the Camps Bay restaurant strip. The open-plan layout makes it warm and
+          welcoming for families and larger groups, with two lounges and a swimming pool &mdash;
+          built for entertaining.
+        </p>
+        <ul class="specs">
+          <li>10 bedrooms</li>
+          <li>Recently renovated</li>
+          <li>Two lounges</li>
+          <li>Swimming pool</li>
+          <li>Walk to Beta Beach</li>
+        </ul>
+        <a class="view" href="https://villasincapetown.com/listings/the-villa-camps-bay" target="_blank" rel="noopener">
+          View the listing <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="price">
+        <div class="price-row">
+          <p class="price-label">Per night</p>
+          <p class="price-figure">R88 500 <span class="unit">/ night</span></p>
+        </div>
+        <div class="price-row">
+          <p class="price-label">19 nights</p>
+          <p class="price-figure total">R1 681 500</p>
+          <span class="badge">10% discount applied</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== Leg two ===== -->
+  <section class="leg">
+    <div class="leg-head">
+      <span class="leg-dates">18 &ndash; 25 Jan 2027</span>
+      <h2 class="leg-title">Second leg &mdash; 7 nights</h2>
+      <span class="leg-note">Choose one of four &mdash; select a card to price the full trip</span>
+    </div>
+
+    <fieldset class="options">
+      <legend>Choose the villa for 18&ndash;25 January 2027</legend>
+
+      <label class="option">
+        <input type="radio" name="leg2" id="opt-zen" value="zen" data-nightly="41000" data-total="287000" data-name="Zen Villa" checked>
+        <div class="option-top">
+          <div>
+            <h3 class="villa-name">Zen Villa</h3>
+            <p class="locale">Camps Bay &middot; 10 bed / 10 bath</p>
+          </div>
+          <span class="tick" aria-hidden="true"><span></span></span>
+        </div>
+        <p class="blurb">
+          A ten-bedroom, ten-bathroom villa in Camps Bay built for group stays, with sea views,
+          both an indoor and an outdoor swimming pool, and a fire pit.
+        </p>
+        <ul class="specs">
+          <li>10 en-suite bedrooms</li>
+          <li>Sea views</li>
+          <li>Indoor &amp; outdoor pools</li>
+          <li>Fire pit</li>
+        </ul>
+        <div class="option-rates">
+          <span class="rate-nightly">R41 000 <span class="unit">/ night</span></span>
+          <span class="rate-week">R287 000 &middot; 7 nights</span>
+        </div>
+        <a class="view" href="https://villasincapetown.com/listings/zen-villa" target="_blank" rel="noopener">
+          View the listing <span class="arrow">&rarr;</span>
+        </a>
+        <p class="badge" style="margin-top:14px">Rent by application</p>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="leg2" id="opt-sunset" value="sunset" data-nightly="18500" data-total="129500" data-name="Sunset Mansion">
+        <div class="option-top">
+          <div>
+            <h3 class="villa-name">Sunset Mansion</h3>
+            <p class="locale">Llandudno &middot; 7 en-suite bedrooms</p>
+          </div>
+          <span class="tick" aria-hidden="true"><span></span></span>
+        </div>
+        <p class="blurb">
+          A spectacular seven-bedroom villa, every room en-suite, a short distance from the famous
+          Llandudno beach and with great views over the ocean.
+        </p>
+        <ul class="specs">
+          <li>7 en-suite bedrooms</li>
+          <li>Ocean views</li>
+          <li>Near Llandudno beach</li>
+        </ul>
+        <div class="option-rates">
+          <span class="rate-nightly">R18 500 <span class="unit">/ night</span></span>
+          <span class="rate-week">R129 500 &middot; 7 nights <sup>&dagger;</sup></span>
+        </div>
+        <a class="view" href="https://villasincapetown.com/listings/sunset-mansion" target="_blank" rel="noopener">
+          View the listing <span class="arrow">&rarr;</span>
+        </a>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="leg2" id="opt-velvet" value="velvet" data-nightly="23000" data-total="161000" data-name="Velvet Villa">
+        <div class="option-top">
+          <div>
+            <h3 class="villa-name">Velvet Villa</h3>
+            <p class="locale">Constantia &middot; 7 en-suite bedrooms</p>
+          </div>
+          <span class="tick" aria-hidden="true"><span></span></span>
+        </div>
+        <p class="blurb">
+          A seven-bedroom, all en-suite villa in Constantia, sitting right on the doorstep of the
+          oldest vineyards in the Cape &mdash; what more could you want.
+        </p>
+        <ul class="specs">
+          <li>7 en-suite bedrooms</li>
+          <li>Constantia winelands</li>
+          <li>Oldest vineyards in the Cape</li>
+        </ul>
+        <div class="option-rates">
+          <span class="rate-nightly">R23 000 <span class="unit">/ night</span></span>
+          <span class="rate-week">R161 000 &middot; 7 nights <sup>&dagger;</sup></span>
+        </div>
+        <a class="view" href="https://villasincapetown.com/listings/velvet-villa" target="_blank" rel="noopener">
+          View the listing <span class="arrow">&rarr;</span>
+        </a>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="leg2" id="opt-constantia" value="constantia" data-nightly="50000" data-total="350000" data-name="Constantia Grande and Den">
+        <div class="option-top">
+          <div>
+            <h3 class="villa-name">Constantia Grande and Den</h3>
+            <p class="locale">Constantia &middot; 10 bed / 10 bath &middot; sleeps 20</p>
+          </div>
+          <span class="tick" aria-hidden="true"><span></span></span>
+        </div>
+        <p class="blurb">
+          Two exquisite villas &mdash; an eight-bedroom and a two-bedroom &mdash; make up this luxury
+          complex in Constantia. Five-star comfort for up to twenty guests in spacious, opulent suites
+          with modern amenities, a dedicated butler and a heated swimming pool. You have access to the
+          entire property, both villas included.
+        </p>
+        <ul class="specs">
+          <li>8-bed villa + 2-bed villa</li>
+          <li>Sleeps 20</li>
+          <li>Dedicated butler</li>
+          <li>Heated pool</li>
+          <li>Entire property</li>
+        </ul>
+        <div class="option-rates">
+          <span class="rate-nightly">R50 000 <span class="unit">/ night</span></span>
+          <span class="rate-week">R350 000 &middot; 7 nights <sup>&dagger;</sup></span>
+        </div>
+        <a class="view" href="https://villasincapetown.com/listings/constantia-grande-and-den" target="_blank" rel="noopener">
+          View the listing <span class="arrow">&rarr;</span>
+        </a>
+        <p class="badge" style="margin-top:14px">Available 4 Jan &ndash; 10 Feb 2027</p>
+      </label>
+    </fieldset>
+
+    <div class="tally">
+      <h3>Trip total with the selected villa</h3>
+      <div class="tally-line">
+        <span class="k">First leg &mdash; The Villa at Camps Bay, 19 nights</span>
+        <span class="v">R1 681 500</span>
+      </div>
+      <div class="tally-line">
+        <span class="k" id="tally-leg2-label">Second leg &mdash; Zen Villa, 7 nights</span>
+        <span class="v" id="tally-leg2-value">R287 000</span>
+      </div>
+      <div class="tally-line grand">
+        <span class="k">26 nights, combined</span>
+        <span class="v" id="tally-grand">R1 968 500</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>Notes on the rates</h2>
+    <ul>
+      <li>All rates are in South African rand, quoted per night, and exclude flights, transfers and staff gratuities.</li>
+      <li><sup>&dagger;</sup> Seven-night figures for Sunset Mansion, Velvet Villa and Constantia Grande and Den are calculated from the quoted nightly rate; the stay totals for The Villa at Camps Bay and Zen Villa are as quoted by the owner.</li>
+      <li>The Villa at Camps Bay figure already reflects a 10% discount on the 19-night stay.</li>
+      <li>Zen Villa is rent by application &mdash; the owner confirms the booking before it is held.</li>
+      <li>Constantia Grande and Den is available from 4 January to 10 February 2027. If you would like to stay longer, the best rate can be negotiated with the owner.</li>
+      <li>Rates and availability are subject to confirmation at the time of booking.</li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+  (function () {
+    var rand = function (n) {
+      return "R" + n.toLocaleString("en-ZA").replace(/,/g, " ");
+    };
+    var LEG1 = 1681500;
+    var label = document.getElementById("tally-leg2-label");
+    var value = document.getElementById("tally-leg2-value");
+    var grand = document.getElementById("tally-grand");
+
+    function update(input) {
+      var total = parseInt(input.dataset.total, 10);
+      label.textContent = "Second leg — " + input.dataset.name + ", 7 nights";
+      value.textContent = rand(total);
+      grand.textContent = rand(LEG1 + total);
+    }
+
+    var inputs = document.querySelectorAll('input[name="leg2"]');
+    inputs.forEach(function (input) {
+      input.addEventListener("change", function () {
+        if (input.checked) update(input);
+      });
+      if (input.checked) update(input);
+    });
+  })();
+</script>
