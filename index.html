@@ -1,4 +1,4 @@
-<title>Cape Town Villa Proposal</title>
+<title>Cape Town Villas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@400;500;700&display=swap">
@@ -66,16 +66,18 @@
   }
 
   .wrap {
-    max-width: 1060px;
+    max-width: 1140px;
     margin: 0 auto;
     padding-inline: 22px;
     padding-block: 0 72px;
   }
 
+  a { color: inherit; }
+
   /* ---------- masthead ---------- */
 
   .masthead {
-    padding-block: 56px 40px;
+    padding-block: 52px 34px;
     border-bottom: 1px solid var(--line-strong);
   }
 
@@ -85,30 +87,17 @@
     letter-spacing: .16em;
     text-transform: uppercase;
     color: var(--accent-ink);
-    margin: 0 0 22px;
+    margin: 0 0 20px;
   }
 
   h1 {
     font-family: "Bodoni Moda", "Didot", "Times New Roman", serif;
     font-weight: 600;
-    font-size: clamp(38px, 7.2vw, 66px);
-    line-height: 1.02;
+    font-size: clamp(36px, 6.6vw, 60px);
+    line-height: 1.04;
     letter-spacing: -.012em;
     text-wrap: balance;
-    margin: 0 0 20px;
-  }
-
-  h1 em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--accent-ink);
-  }
-
-  .standfirst {
-    max-width: 58ch;
-    color: var(--ink-soft);
-    font-size: 17px;
-    margin: 0 0 32px;
+    margin: 0 0 26px;
   }
 
   .facts {
@@ -118,7 +107,7 @@
     margin: 0;
   }
 
-  .fact { display: flex; flex-direction: column; gap: 4px; }
+  .fact { display: flex; flex-direction: column; gap: 3px; }
 
   .fact dt {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -135,21 +124,21 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* ---------- chapters ---------- */
+  /* ---------- sections ---------- */
 
-  .leg { padding-block: 52px 8px; }
+  .block { padding-block: 48px 0; }
 
-  .leg-head {
+  .block-head {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     gap: 6px 18px;
-    margin-bottom: 26px;
+    margin-bottom: 24px;
     padding-bottom: 14px;
     border-bottom: 1px solid var(--line);
   }
 
-  .leg-dates {
+  .block-dates {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 13px;
     font-weight: 500;
@@ -158,53 +147,113 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .leg-title {
+  .block-title {
     font-family: "Bodoni Moda", "Didot", serif;
     font-weight: 600;
-    font-size: clamp(22px, 3.4vw, 28px);
+    font-size: clamp(22px, 3.4vw, 27px);
     margin: 0;
-    flex: 1 1 260px;
+    flex: 1 1 200px;
   }
 
-  .leg-note {
-    font-size: 13.5px;
+  .block-count {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
     color: var(--ink-faint);
   }
 
-  /* ---------- feature villa ---------- */
+  /* ---------- villa cards ---------- */
 
-  .feature {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-top: 3px solid var(--accent);
     border-radius: 3px;
     box-shadow: var(--shadow);
-    padding: 34px clamp(20px, 4vw, 40px) 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shot {
+    margin: 0;
+    aspect-ratio: 3 / 2;
+    max-width: 100%;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-    gap: 34px 48px;
-    align-items: start;
+    place-items: center;
+    position: relative;
+  }
+
+  .shot img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .shot .slot {
+    display: none;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .shot.missing img { display: none; }
+  .shot.missing .slot { display: block; }
+
+  .slot-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 6px;
+  }
+
+  .slot-file {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    word-break: break-all;
+    margin: 0;
+  }
+
+  .card-body {
+    padding: 24px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
   }
 
   .villa-name {
     font-family: "Bodoni Moda", "Didot", serif;
     font-weight: 600;
-    font-size: clamp(26px, 4.4vw, 38px);
-    line-height: 1.08;
-    margin: 0 0 8px;
+    font-size: clamp(23px, 3.2vw, 29px);
+    line-height: 1.1;
+    margin: 0 0 6px;
     text-wrap: balance;
   }
 
   .locale {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 11px;
-    letter-spacing: .13em;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--ink-faint);
-    margin: 0 0 18px;
+    margin: 0 0 16px;
   }
 
-  .blurb { margin: 0 0 20px; color: var(--ink-soft); max-width: 62ch; }
+  .blurb {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
 
   .specs {
     display: flex;
@@ -212,7 +261,7 @@
     gap: 8px;
     list-style: none;
     padding: 0;
-    margin: 0 0 22px;
+    margin: 0 0 20px;
   }
 
   .specs li {
@@ -222,6 +271,58 @@
     border-radius: 2px;
     padding: 4px 10px;
   }
+
+  .rates {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 20px;
+  }
+
+  .rate-nightly {
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: 25px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+  }
+
+  .rate-nightly .unit {
+    font-family: "Karla", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-faint);
+  }
+
+  .rate-stay {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    margin: 0;
+  }
+
+  .rate-stay .nights { display: block; color: var(--ink-faint); font-size: 11.5px; }
+  .rate-stay sup { font-size: 10px; }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: var(--accent-ink);
+    background: var(--accent-wash);
+    border-radius: 2px;
+    padding: 4px 9px;
+  }
+
+  .badge.quiet { color: var(--ink-soft); background: var(--surface-2); font-weight: 500; }
 
   .view {
     display: inline-flex;
@@ -233,215 +334,13 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     padding-bottom: 2px;
+    margin-top: 18px;
+    align-self: flex-start;
   }
 
   .view:hover { color: var(--ink); }
+  .view:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; }
   .view .arrow { font-family: "IBM Plex Mono", monospace; font-weight: 400; }
-
-  /* ---------- price block ---------- */
-
-  .price {
-    border-left: 1px solid var(--line);
-    padding-left: 28px;
-  }
-
-  .price-row + .price-row { margin-top: 20px; }
-
-  .price-label {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 10.5px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 0 0 4px;
-  }
-
-  .price-figure {
-    font-family: "Bodoni Moda", "Didot", serif;
-    font-size: 30px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.1;
-    margin: 0;
-  }
-
-  .price-figure .unit {
-    font-family: "Karla", sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--ink-faint);
-    letter-spacing: 0;
-  }
-
-  .price-figure.total { color: var(--accent-ink); }
-
-  .badge {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .02em;
-    color: var(--accent-ink);
-    background: var(--accent-wash);
-    border-radius: 2px;
-    padding: 4px 9px;
-  }
-
-  /* ---------- option grid ---------- */
-
-  .options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 18px;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-
-  .options legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-
-  .option {
-    position: relative;
-    display: block;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 24px 24px 22px;
-    cursor: pointer;
-    transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
-  }
-
-  .option:hover { border-color: var(--line-strong); }
-
-  .option input {
-    position: absolute;
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-  }
-
-  .option:has(input:checked) {
-    border-color: var(--accent);
-    box-shadow: var(--shadow), inset 3px 0 0 var(--accent);
-  }
-
-  .option:has(input:focus-visible) {
-    outline: 2px solid var(--sea);
-    outline-offset: 3px;
-  }
-
-  .option-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-
-  .option .villa-name { font-size: clamp(21px, 3vw, 25px); margin-bottom: 6px; }
-  .option .locale { margin-bottom: 0; }
-  .option .blurb { font-size: 14.5px; margin-bottom: 16px; }
-  .option .specs { margin-bottom: 18px; }
-
-  .tick {
-    flex: 0 0 auto;
-    width: 22px;
-    height: 22px;
-    border: 1px solid var(--line-strong);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    margin-top: 6px;
-  }
-
-  .option:has(input:checked) .tick {
-    border-color: var(--accent);
-    background: var(--accent);
-  }
-
-  .tick span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: transparent;
-  }
-
-  .option:has(input:checked) .tick span { background: var(--surface); }
-
-  .option-rates {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 6px 22px;
-    border-top: 1px solid var(--line);
-    padding-top: 16px;
-    margin-bottom: 16px;
-  }
-
-  .rate-nightly {
-    font-family: "Bodoni Moda", "Didot", serif;
-    font-size: 24px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .rate-nightly .unit {
-    font-family: "Karla", sans-serif;
-    font-size: 12.5px;
-    font-weight: 500;
-    color: var(--ink-faint);
-  }
-
-  .rate-week {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 13px;
-    color: var(--ink-soft);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .rate-week sup { color: var(--accent-ink); font-size: 10px; }
-
-  /* ---------- total panel ---------- */
-
-  .tally {
-    margin-top: 30px;
-    background: var(--surface-2);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 26px clamp(20px, 4vw, 34px);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 22px 34px;
-    align-items: end;
-  }
-
-  .tally h3 {
-    grid-column: 1 / -1;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 0;
-  }
-
-  .tally-line { display: flex; flex-direction: column; gap: 3px; }
-
-  .tally-line .k {
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-
-  .tally-line .v {
-    font-family: "Bodoni Moda", "Didot", serif;
-    font-size: 24px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .tally-line.grand .v { font-size: 32px; color: var(--accent-ink); }
-  .tally-line.grand .k { color: var(--ink); font-weight: 700; }
 
   /* ---------- notes ---------- */
 
@@ -466,22 +365,12 @@
     padding-left: 18px;
     display: grid;
     gap: 10px;
-    max-width: 72ch;
+    max-width: 74ch;
     color: var(--ink-soft);
     font-size: 14.5px;
   }
 
   .notes sup { color: var(--accent-ink); }
-
-  @media (max-width: 760px) {
-    .feature { grid-template-columns: 1fr; gap: 26px; }
-    .price {
-      border-left: 0;
-      border-top: 1px solid var(--line);
-      padding-left: 0;
-      padding-top: 22px;
-    }
-  }
 
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
@@ -491,217 +380,305 @@
 <div class="wrap">
 
   <header class="masthead">
-    <p class="eyebrow">Villa proposal &middot; Cape Town &middot; Summer 2026/27</p>
-    <h1>Twenty-six nights on the <em>Atlantic Seaboard</em></h1>
-    <p class="standfirst">
-      Two consecutive stays, from New Year in Camps Bay through to the end of January.
-      The first leg is held at The Villa at Camps Bay; the second week is a choice between
-      four properties across Camps Bay, Llandudno and Constantia.
-    </p>
+    <p class="eyebrow">Cape Town &middot; Summer 2026 / 27</p>
+    <h1>Villa options, 30 December 2026 &ndash; 25 January 2027</h1>
     <dl class="facts">
       <div class="fact"><dt>Arrival</dt><dd>30 Dec 2026</dd></div>
       <div class="fact"><dt>Departure</dt><dd>25 Jan 2027</dd></div>
       <div class="fact"><dt>Total nights</dt><dd>26</dd></div>
+      <div class="fact"><dt>Properties</dt><dd>7</dd></div>
       <div class="fact"><dt>Currency</dt><dd>ZAR (R)</dd></div>
     </dl>
   </header>
 
-  <!-- ===== Leg one ===== -->
-  <section class="leg">
-    <div class="leg-head">
-      <span class="leg-dates">30 Dec 2026 &ndash; 18 Jan 2027</span>
-      <h2 class="leg-title">First leg &mdash; 19 nights</h2>
-      <span class="leg-note">One property, rate confirmed</span>
+  <!-- ============ 19 nights ============ -->
+  <section class="block">
+    <div class="block-head">
+      <span class="block-dates">30 Dec 2026 &ndash; 18 Jan 2027</span>
+      <h2 class="block-title">19 nights</h2>
+      <span class="block-count">1 property</span>
     </div>
 
-    <article class="feature">
-      <div>
-        <h3 class="villa-name">The Villa at Camps Bay</h3>
-        <p class="locale">Camps Bay &middot; 10 bedrooms</p>
-        <p class="blurb">
-          A luxurious, recently renovated ten-bedroom villa a short walk from Beta Beach and
-          minutes from the Camps Bay restaurant strip. The open-plan layout makes it warm and
-          welcoming for families and larger groups, with two lounges and a swimming pool &mdash;
-          built for entertaining.
-        </p>
-        <ul class="specs">
-          <li>10 bedrooms</li>
-          <li>Recently renovated</li>
-          <li>Two lounges</li>
-          <li>Swimming pool</li>
-          <li>Walk to Beta Beach</li>
-        </ul>
-        <a class="view" href="https://villasincapetown.com/listings/the-villa-camps-bay" target="_blank" rel="noopener">
-          View the listing <span class="arrow">&rarr;</span>
-        </a>
-      </div>
+    <div class="grid">
 
-      <div class="price">
-        <div class="price-row">
-          <p class="price-label">Per night</p>
-          <p class="price-figure">R88 500 <span class="unit">/ night</span></p>
+      <article class="card">
+        <figure class="shot">
+          <img src="images/the-villa-camps-bay.jpg" alt="The Villa at Camps Bay" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/the-villa-camps-bay.jpg</p>
+          </div>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">The Villa at Camps Bay</h3>
+          <p class="locale">Camps Bay &middot; 10 bedrooms</p>
+          <p class="blurb">
+            Luxurious 10-bedroom (recently renovated) villa in Camps Bay. Just a short walk to
+            Beta Beach and minutes from Camps Bay's vibrant restaurants, the villa's open-plan
+            layout creates a warm and welcoming atmosphere for families and groups. Two lounges,
+            swimming pool, great for entertaining.
+          </p>
+          <ul class="specs">
+            <li>10 bedrooms</li>
+            <li>Recently renovated</li>
+            <li>Two lounges</li>
+            <li>Swimming pool</li>
+            <li>Walk to Beta Beach</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly">R88&nbsp;500 <span class="unit">/ night</span></p>
+            <p class="rate-stay">R1&nbsp;681&nbsp;500 <span class="nights">19 nights</span></p>
+          </div>
+          <div class="badges">
+            <span class="badge">10% discount applied</span>
+          </div>
+          <a class="view" href="https://villasincapetown.com/listings/the-villa-camps-bay" target="_blank" rel="noopener">
+            View the listing <span class="arrow">&rarr;</span>
+          </a>
         </div>
-        <div class="price-row">
-          <p class="price-label">19 nights</p>
-          <p class="price-figure total">R1 681 500</p>
-          <span class="badge">10% discount applied</span>
-        </div>
-      </div>
-    </article>
+      </article>
+
+    </div>
   </section>
 
-  <!-- ===== Leg two ===== -->
-  <section class="leg">
-    <div class="leg-head">
-      <span class="leg-dates">18 &ndash; 25 Jan 2027</span>
-      <h2 class="leg-title">Second leg &mdash; 7 nights</h2>
-      <span class="leg-note">Choose one of four &mdash; select a card to price the full trip</span>
+  <!-- ============ 7 nights ============ -->
+  <section class="block">
+    <div class="block-head">
+      <span class="block-dates">18 &ndash; 25 Jan 2027</span>
+      <h2 class="block-title">7 nights</h2>
+      <span class="block-count">4 properties</span>
     </div>
 
-    <fieldset class="options">
-      <legend>Choose the villa for 18&ndash;25 January 2027</legend>
+    <div class="grid">
 
-      <label class="option">
-        <input type="radio" name="leg2" id="opt-zen" value="zen" data-nightly="41000" data-total="287000" data-name="Zen Villa" checked>
-        <div class="option-top">
-          <div>
-            <h3 class="villa-name">Zen Villa</h3>
-            <p class="locale">Camps Bay &middot; 10 bed / 10 bath</p>
+      <article class="card">
+        <figure class="shot">
+          <img src="images/zen-villa.jpg" alt="Zen Villa" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/zen-villa.jpg</p>
           </div>
-          <span class="tick" aria-hidden="true"><span></span></span>
-        </div>
-        <p class="blurb">
-          A ten-bedroom, ten-bathroom villa in Camps Bay built for group stays, with sea views,
-          both an indoor and an outdoor swimming pool, and a fire pit.
-        </p>
-        <ul class="specs">
-          <li>10 en-suite bedrooms</li>
-          <li>Sea views</li>
-          <li>Indoor &amp; outdoor pools</li>
-          <li>Fire pit</li>
-        </ul>
-        <div class="option-rates">
-          <span class="rate-nightly">R41 000 <span class="unit">/ night</span></span>
-          <span class="rate-week">R287 000 &middot; 7 nights</span>
-        </div>
-        <a class="view" href="https://villasincapetown.com/listings/zen-villa" target="_blank" rel="noopener">
-          View the listing <span class="arrow">&rarr;</span>
-        </a>
-        <p class="badge" style="margin-top:14px">Rent by application</p>
-      </label>
-
-      <label class="option">
-        <input type="radio" name="leg2" id="opt-sunset" value="sunset" data-nightly="18500" data-total="129500" data-name="Sunset Mansion">
-        <div class="option-top">
-          <div>
-            <h3 class="villa-name">Sunset Mansion</h3>
-            <p class="locale">Llandudno &middot; 7 en-suite bedrooms</p>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">Zen Villa</h3>
+          <p class="locale">Camps Bay &middot; 10 bed / 10 bath</p>
+          <p class="blurb">
+            10 bedroom / 10 bathroom villa in Camps Bay, ideal for group stays. Sea views,
+            indoor and outdoor swimming pool, fire pit.
+          </p>
+          <ul class="specs">
+            <li>10 bedrooms</li>
+            <li>10 bathrooms</li>
+            <li>Sea views</li>
+            <li>Indoor &amp; outdoor pools</li>
+            <li>Fire pit</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly">R41&nbsp;000 <span class="unit">/ night</span></p>
+            <p class="rate-stay">R287&nbsp;000 <span class="nights">7 nights</span></p>
           </div>
-          <span class="tick" aria-hidden="true"><span></span></span>
-        </div>
-        <p class="blurb">
-          A spectacular seven-bedroom villa, every room en-suite, a short distance from the famous
-          Llandudno beach and with great views over the ocean.
-        </p>
-        <ul class="specs">
-          <li>7 en-suite bedrooms</li>
-          <li>Ocean views</li>
-          <li>Near Llandudno beach</li>
-        </ul>
-        <div class="option-rates">
-          <span class="rate-nightly">R18 500 <span class="unit">/ night</span></span>
-          <span class="rate-week">R129 500 &middot; 7 nights <sup>&dagger;</sup></span>
-        </div>
-        <a class="view" href="https://villasincapetown.com/listings/sunset-mansion" target="_blank" rel="noopener">
-          View the listing <span class="arrow">&rarr;</span>
-        </a>
-      </label>
-
-      <label class="option">
-        <input type="radio" name="leg2" id="opt-velvet" value="velvet" data-nightly="23000" data-total="161000" data-name="Velvet Villa">
-        <div class="option-top">
-          <div>
-            <h3 class="villa-name">Velvet Villa</h3>
-            <p class="locale">Constantia &middot; 7 en-suite bedrooms</p>
+          <div class="badges">
+            <span class="badge">Rent by application</span>
           </div>
-          <span class="tick" aria-hidden="true"><span></span></span>
+          <a class="view" href="https://villasincapetown.com/listings/zen-villa" target="_blank" rel="noopener">
+            View the listing <span class="arrow">&rarr;</span>
+          </a>
         </div>
-        <p class="blurb">
-          A seven-bedroom, all en-suite villa in Constantia, sitting right on the doorstep of the
-          oldest vineyards in the Cape &mdash; what more could you want.
-        </p>
-        <ul class="specs">
-          <li>7 en-suite bedrooms</li>
-          <li>Constantia winelands</li>
-          <li>Oldest vineyards in the Cape</li>
-        </ul>
-        <div class="option-rates">
-          <span class="rate-nightly">R23 000 <span class="unit">/ night</span></span>
-          <span class="rate-week">R161 000 &middot; 7 nights <sup>&dagger;</sup></span>
-        </div>
-        <a class="view" href="https://villasincapetown.com/listings/velvet-villa" target="_blank" rel="noopener">
-          View the listing <span class="arrow">&rarr;</span>
-        </a>
-      </label>
+      </article>
 
-      <label class="option">
-        <input type="radio" name="leg2" id="opt-constantia" value="constantia" data-nightly="50000" data-total="350000" data-name="Constantia Grande and Den">
-        <div class="option-top">
-          <div>
-            <h3 class="villa-name">Constantia Grande and Den</h3>
-            <p class="locale">Constantia &middot; 10 bed / 10 bath &middot; sleeps 20</p>
+      <article class="card">
+        <figure class="shot">
+          <img src="images/sunset-mansion.jpg" alt="Sunset Mansion" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/sunset-mansion.jpg</p>
           </div>
-          <span class="tick" aria-hidden="true"><span></span></span>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">Sunset Mansion</h3>
+          <p class="locale">Llandudno &middot; 7 en-suite bedrooms</p>
+          <p class="blurb">
+            Spectacular 7 en-suite bedroom villa situated in short proximity to the famous
+            Llandudno beach, with great views of the ocean.
+          </p>
+          <ul class="specs">
+            <li>7 en-suite bedrooms</li>
+            <li>Ocean views</li>
+            <li>Near Llandudno beach</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly">R18&nbsp;500 <span class="unit">/ night</span></p>
+            <p class="rate-stay">R129&nbsp;500 <sup>&dagger;</sup> <span class="nights">7 nights</span></p>
+          </div>
+          <a class="view" href="https://villasincapetown.com/listings/sunset-mansion" target="_blank" rel="noopener">
+            View the listing <span class="arrow">&rarr;</span>
+          </a>
         </div>
-        <p class="blurb">
-          Two exquisite villas &mdash; an eight-bedroom and a two-bedroom &mdash; make up this luxury
-          complex in Constantia. Five-star comfort for up to twenty guests in spacious, opulent suites
-          with modern amenities, a dedicated butler and a heated swimming pool. You have access to the
-          entire property, both villas included.
-        </p>
-        <ul class="specs">
-          <li>8-bed villa + 2-bed villa</li>
-          <li>Sleeps 20</li>
-          <li>Dedicated butler</li>
-          <li>Heated pool</li>
-          <li>Entire property</li>
-        </ul>
-        <div class="option-rates">
-          <span class="rate-nightly">R50 000 <span class="unit">/ night</span></span>
-          <span class="rate-week">R350 000 &middot; 7 nights <sup>&dagger;</sup></span>
-        </div>
-        <a class="view" href="https://villasincapetown.com/listings/constantia-grande-and-den" target="_blank" rel="noopener">
-          View the listing <span class="arrow">&rarr;</span>
-        </a>
-        <p class="badge" style="margin-top:14px">Available 4 Jan &ndash; 10 Feb 2027</p>
-      </label>
-    </fieldset>
+      </article>
 
-    <div class="tally">
-      <h3>Trip total with the selected villa</h3>
-      <div class="tally-line">
-        <span class="k">First leg &mdash; The Villa at Camps Bay, 19 nights</span>
-        <span class="v">R1 681 500</span>
-      </div>
-      <div class="tally-line">
-        <span class="k" id="tally-leg2-label">Second leg &mdash; Zen Villa, 7 nights</span>
-        <span class="v" id="tally-leg2-value">R287 000</span>
-      </div>
-      <div class="tally-line grand">
-        <span class="k">26 nights, combined</span>
-        <span class="v" id="tally-grand">R1 968 500</span>
-      </div>
+      <article class="card">
+        <figure class="shot">
+          <img src="images/velvet-villa.jpg" alt="Velvet Villa" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/velvet-villa.jpg</p>
+          </div>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">Velvet Villa</h3>
+          <p class="locale">Constantia &middot; 7 en-suite bedrooms</p>
+          <p class="blurb">
+            7-bedroom all en-suite villa in Constantia, conveniently situated right on the
+            doorstep of the oldest vineyards in the Cape &mdash; what more could you want.
+          </p>
+          <ul class="specs">
+            <li>7 en-suite bedrooms</li>
+            <li>Constantia</li>
+            <li>Oldest vineyards in the Cape</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly">R23&nbsp;000 <span class="unit">/ night</span></p>
+            <p class="rate-stay">R161&nbsp;000 <sup>&dagger;</sup> <span class="nights">7 nights</span></p>
+          </div>
+          <a class="view" href="https://villasincapetown.com/listings/velvet-villa" target="_blank" rel="noopener">
+            View the listing <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot">
+          <img src="images/constantia-grande-and-den.jpg" alt="Constantia Grande and Den" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/constantia-grande-and-den.jpg</p>
+          </div>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">Constantia Grande and Den</h3>
+          <p class="locale">Constantia &middot; 10 bed / 10 bath &middot; sleeps 20</p>
+          <p class="blurb">
+            Two exquisite villas (an 8-bedroom and a 2-bedroom) make up this luxury villa complex
+            in Constantia. The 10-bedroom, 10-bathroom complex offers 5-star comfort, accommodating
+            up to 20 guests in spacious, opulent suites equipped with modern amenities. A dedicated
+            butler, heated swimming pool (on request in the winter months). You will have access to
+            the entire property, which includes both villas.
+          </p>
+          <ul class="specs">
+            <li>8-bed villa + 2-bed villa</li>
+            <li>10 bathrooms</li>
+            <li>Sleeps 20</li>
+            <li>Dedicated butler</li>
+            <li>Heated pool</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly">R50&nbsp;000 <span class="unit">/ night</span></p>
+            <p class="rate-stay">R350&nbsp;000 <sup>&dagger;</sup> <span class="nights">7 nights</span></p>
+          </div>
+          <div class="badges">
+            <span class="badge">Available 4 Jan &ndash; 10 Feb 2027</span>
+            <span class="badge quiet">Longer stays negotiable with the owner</span>
+          </div>
+          <a class="view" href="https://villasincapetown.com/listings/constantia-grande-and-den" target="_blank" rel="noopener">
+            View the listing <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ whole stay ============ -->
+  <section class="block">
+    <div class="block-head">
+      <span class="block-dates">30 Dec 2026 &ndash; 25 Jan 2027</span>
+      <h2 class="block-title">Whole stay &mdash; 26 nights</h2>
+      <span class="block-count">2 properties</span>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <figure class="shot">
+          <img src="images/airbnb-53244874.jpg" alt="Airbnb listing 53244874" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/airbnb-53244874.jpg</p>
+          </div>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">Airbnb listing 53244874</h3>
+          <p class="locale">Cape Town &middot; 16 adults</p>
+          <p class="blurb">
+            Available for the whole stay. The link opens the listing with the dates and guest
+            count already set: 30 December 2026 to 25 January 2027, 16 adults.
+          </p>
+          <ul class="specs">
+            <li>16 adults</li>
+            <li>26 nights</li>
+            <li>Booked through Airbnb</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly" style="font-family:Karla,sans-serif;font-size:17px;font-weight:700;color:var(--ink-soft)">Rate on the listing</p>
+            <p class="rate-stay"><span class="nights">26 nights</span></p>
+          </div>
+          <div class="badges">
+            <span class="badge quiet">Name, rate and photo to be added</span>
+          </div>
+          <a class="view" href="https://www.airbnb.co.za/rooms/53244874?adults=16&amp;check_in=2026-12-30&amp;check_out=2027-01-25" target="_blank" rel="noopener">
+            View on Airbnb <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure class="shot">
+          <img src="images/two-views-beach-house.jpg" alt="Two Views Beach House" loading="lazy">
+          <div class="slot">
+            <p class="slot-label">Photo slot</p>
+            <p class="slot-file">images/two-views-beach-house.jpg</p>
+          </div>
+        </figure>
+        <div class="card-body">
+          <h3 class="villa-name">Two Views Beach House</h3>
+          <p class="locale">Camps Bay &middot; 8 bedrooms &middot; max 16 guests</p>
+          <p class="blurb">
+            An 8-bedroom property in Camps Bay with two splash pools and a jacuzzi, available for
+            the full duration. Accommodation only, maximum 16 guests, no filming.
+          </p>
+          <ul class="specs">
+            <li>8 bedrooms</li>
+            <li>Max 16 guests</li>
+            <li>2 splash pools</li>
+            <li>Jacuzzi</li>
+            <li>Accommodation only</li>
+            <li>No filming</li>
+          </ul>
+          <div class="rates">
+            <p class="rate-nightly">R98&nbsp;417 <sup>&dagger;</sup> <span class="unit">/ night</span></p>
+            <p class="rate-stay">R2&nbsp;558&nbsp;834 <span class="nights">26 nights</span></p>
+          </div>
+          <div class="badges">
+            <span class="badge">Available for the full duration</span>
+          </div>
+          <a class="view" href="https://capeagents.co.za/details?property_id=cb155" target="_blank" rel="noopener">
+            View the listing <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
     </div>
   </section>
 
   <section class="notes">
-    <h2>Notes on the rates</h2>
+    <h2>Notes</h2>
     <ul>
-      <li>All rates are in South African rand, quoted per night, and exclude flights, transfers and staff gratuities.</li>
-      <li><sup>&dagger;</sup> Seven-night figures for Sunset Mansion, Velvet Villa and Constantia Grande and Den are calculated from the quoted nightly rate; the stay totals for The Villa at Camps Bay and Zen Villa are as quoted by the owner.</li>
-      <li>The Villa at Camps Bay figure already reflects a 10% discount on the 19-night stay.</li>
-      <li>Zen Villa is rent by application &mdash; the owner confirms the booking before it is held.</li>
-      <li>Constantia Grande and Den is available from 4 January to 10 February 2027. If you would like to stay longer, the best rate can be negotiated with the owner.</li>
+      <li>All rates are in South African rand and exclude flights, transfers and staff gratuities.</li>
+      <li><sup>&dagger;</sup> Calculated figure. Sunset Mansion, Velvet Villa and Constantia Grande and Den are worked out from the quoted nightly rate &times; 7 nights; the Two Views Beach House nightly figure is its quoted stay total of R2&nbsp;558&nbsp;834 divided across 26 nights. All other totals are as quoted.</li>
+      <li>The Villa at Camps Bay total of R1&nbsp;681&nbsp;500 already reflects the 10% discount.</li>
+      <li>Zen Villa is rent by application.</li>
+      <li>Constantia Grande and Den is available from 4 January to 10 February 2027; a longer stay can be negotiated with the owner.</li>
+      <li>Two Views Beach House is accommodation only, capped at 16 guests, and does not permit filming.</li>
       <li>Rates and availability are subject to confirmation at the time of booking.</li>
     </ul>
   </section>
@@ -709,28 +686,10 @@
 </div>
 
 <script>
-  (function () {
-    var rand = function (n) {
-      return "R" + n.toLocaleString("en-ZA").replace(/,/g, " ");
-    };
-    var LEG1 = 1681500;
-    var label = document.getElementById("tally-leg2-label");
-    var value = document.getElementById("tally-leg2-value");
-    var grand = document.getElementById("tally-grand");
-
-    function update(input) {
-      var total = parseInt(input.dataset.total, 10);
-      label.textContent = "Second leg — " + input.dataset.name + ", 7 nights";
-      value.textContent = rand(total);
-      grand.textContent = rand(LEG1 + total);
-    }
-
-    var inputs = document.querySelectorAll('input[name="leg2"]');
-    inputs.forEach(function (input) {
-      input.addEventListener("change", function () {
-        if (input.checked) update(input);
-      });
-      if (input.checked) update(input);
-    });
-  })();
+  // Photo slots stay visible until the matching file exists in /images.
+  document.querySelectorAll(".shot img").forEach(function (img) {
+    function miss() { img.closest(".shot").classList.add("missing"); }
+    img.addEventListener("error", miss);
+    if (img.complete && img.naturalWidth === 0) miss();
+  });
 </script>
