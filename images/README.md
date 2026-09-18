@@ -7,7 +7,7 @@ naming the file it expects.
 | File | Property |
 | --- | --- |
 | `the-villa-camps-bay.jpg` | The Villa at Camps Bay |
-| `zen-villa.jpg` | Zen Villa |
+| `zen-villa.webp` | Zen Villa — **added** |
 | `sunset-mansion.jpg` | Sunset Mansion |
 | `velvet-villa.jpg` | Velvet Villa |
 | `constantia-grande-and-den.jpg` | Constantia Grande and Den |
@@ -15,5 +15,5 @@ naming the file it expects.
 | `two-views-beach-house.jpg` | Two Views Beach House |
 
 Landscape works best — the cards crop to 3:2. Around 1600px wide is plenty.
-`.jpg` is what the page asks for; if you use `.png` or `.webp`, update the
-`src` on that card in `index.html` to match.
+`.jpg`, `.png` and `.webp` all work; whatever extension the file has must match
+the `src` on that card in `index.html`.
