@@ -209,6 +209,19 @@
     margin: 0 0 4px;
   }
 
+  .name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 1px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+
+  .name a:hover { color: var(--accent-ink); border-bottom-color: var(--accent); }
+  .name a:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; }
+
+  tbody tr:not(.group):hover td { background: var(--surface-2); }
+
   .where {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 10.5px;
@@ -258,16 +271,22 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 700;
+    letter-spacing: .02em;
     color: var(--ink);
     text-decoration: none;
-    border-bottom: 1px solid var(--line-strong);
-    padding-bottom: 2px;
-    transition: color .15s ease, border-color .15s ease;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    padding: 9px 15px;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
   }
 
-  .view:hover { color: var(--accent-ink); border-color: var(--accent); }
+  .view:hover {
+    color: var(--surface);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
   .view:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; }
   .view .arrow { font-family: "IBM Plex Mono", monospace; font-weight: 400; }
 
@@ -335,7 +354,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Sedgemoor Luxury Villa</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/sedgemoor-luxury-villa" target="_blank" rel="noopener">Sedgemoor Luxury Villa</a></p>
             <p class="where">Camps Bay</p>
           </td>
           <td class="detail">
@@ -356,7 +375,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">The Villa at Camps Bay</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/the-villa-camps-bay" target="_blank" rel="noopener">The Villa at Camps Bay</a></p>
             <p class="where">Camps Bay</p>
           </td>
           <td class="detail">
@@ -378,7 +397,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Villa Bahia</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/villa-bahia" target="_blank" rel="noopener">Villa Bahia</a></p>
             <p class="where">Bantry Bay</p>
           </td>
           <td class="detail">
@@ -399,7 +418,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Zen Villa</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/zen-villa" target="_blank" rel="noopener">Zen Villa</a></p>
             <p class="where">Camps Bay</p>
           </td>
           <td class="detail">
@@ -415,7 +434,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Sunset Mansion</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/sunset-mansion" target="_blank" rel="noopener">Sunset Mansion</a></p>
             <p class="where">Llandudno</p>
           </td>
           <td class="detail">
@@ -430,7 +449,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Velvet Villa</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/velvet-villa" target="_blank" rel="noopener">Velvet Villa</a></p>
             <p class="where">Constantia</p>
           </td>
           <td class="detail">
@@ -444,7 +463,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Constantia Grande and Den</p>
+            <p class="name"><a href="https://villasincapetown.com/listings/constantia-grande-and-den" target="_blank" rel="noopener">Constantia Grande and Den</a></p>
             <p class="where">Constantia</p>
           </td>
           <td class="detail">
@@ -467,7 +486,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Two Views Beach House</p>
+            <p class="name"><a href="https://capeagents.co.za/details?property_id=cb155" target="_blank" rel="noopener">Two Views Beach House</a></p>
             <p class="where">Camps Bay</p>
           </td>
           <td class="detail">
@@ -482,7 +501,7 @@
         </tr>
         <tr>
           <td>
-            <p class="name">Airbnb listing 53244874</p>
+            <p class="name"><a href="https://www.airbnb.co.za/rooms/53244874?adults=16&amp;check_in=2026-12-30&amp;check_out=2027-01-25" target="_blank" rel="noopener">Airbnb listing 53244874</a></p>
             <p class="where">Cape Town</p>
           </td>
           <td class="detail">
