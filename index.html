@@ -299,18 +299,95 @@
     white-space: nowrap;
   }
 
-  .hint {
-    display: none;
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin: 0 0 12px;
+  /* ---------- narrow screens: the table becomes stacked cards ---------- */
+
+  @media (max-width: 860px) {
+    .wrap { padding-inline: 18px; padding-block: 34px 60px; }
+
+    .hero-inner { padding-inline: 18px; }
+    .hero-facts { gap: 12px 26px; }
+    .hero-facts dd { font-size: 16px; }
   }
 
-  @media (max-width: 900px) {
-    .hint { display: block; }
+  @media (max-width: 560px) {
+    .hero-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px 12px;
+    }
+
+    .scroller {
+      overflow-x: visible;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    table, tbody, tr, td { display: block; }
+    table { min-width: 0; }
+    thead { display: none; }
+
+    .group th {
+      display: block;
+      background: none;
+      border: 0;
+      padding: 26px 0 12px;
+      font-size: 12px;
+    }
+
+    tbody:first-of-type .group th { padding-top: 0; }
+
+    tbody tr:not(.group) {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+      margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 18px;
+    }
+
+    tbody tr:not(.group):hover td { background: none; }
+
+    tbody td { padding: 0; border: 0; }
+
+    tbody td:first-child { grid-column: 1 / -1; }
+
+    td.detail {
+      grid-column: 1 / -1;
+      min-width: 0;
+      max-width: none;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    tbody tr:last-child td.detail { border-bottom: 1px solid var(--line); }
+
+    td.num { text-align: left; white-space: normal; }
+
+    td.num::before {
+      content: attr(data-label);
+      display: block;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 3px;
+    }
+
+    .total { font-size: 22px; }
+
+    td.link { grid-column: 1 / -1; text-align: left; }
+    .view { width: 100%; justify-content: center; padding: 13px 15px; font-size: 13.5px; }
+  }
+
+  @media (max-width: 380px) {
+    tbody tr:not(.group) { grid-template-columns: 1fr; gap: 16px; }
+    .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -333,8 +410,6 @@
 </header>
 
 <div class="wrap">
-
-  <p class="hint">Scroll the table sideways &rarr;</p>
 
   <div class="scroller">
     <table>
@@ -361,8 +436,8 @@
             Ultra-luxe 6-bedroom villa with unobstructed beach and ocean views, within walking
             distance of Camps Bay main beach and the surrounding hot spots.
           </td>
-          <td class="num"><span class="nightly">R120&nbsp;000</span></td>
-          <td class="num"><span class="total">R1&nbsp;200&nbsp;000</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R120&nbsp;000</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R1&nbsp;200&nbsp;000</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/sedgemoor-luxury-villa" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -383,8 +458,8 @@
             a short walk to Beta Beach and minutes from the Camps Bay restaurants.
             <span class="terms">10% discount applied to the stay total.</span>
           </td>
-          <td class="num"><span class="nightly">R88&nbsp;500</span></td>
-          <td class="num"><span class="total">R1&nbsp;681&nbsp;500</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R88&nbsp;500</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R1&nbsp;681&nbsp;500</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/the-villa-camps-bay" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -404,8 +479,8 @@
             Coastal villa with 6 bedrooms and 6 bathrooms, two swimming pools and two patios
             looking out over the ocean and the sunset skies.
           </td>
-          <td class="num"><span class="nightly">R39&nbsp;000</span></td>
-          <td class="num"><span class="total">R585&nbsp;000</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R39&nbsp;000</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R585&nbsp;000</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/villa-bahia" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -426,8 +501,8 @@
             Ideal for group stays.
             <span class="terms">Rent by application.</span>
           </td>
-          <td class="num"><span class="nightly">R41&nbsp;000</span></td>
-          <td class="num"><span class="total">R287&nbsp;000</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R41&nbsp;000</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R287&nbsp;000</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/zen-villa" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -441,8 +516,8 @@
             7 en-suite bedrooms with great views of the ocean, a short distance from
             Llandudno beach.
           </td>
-          <td class="num"><span class="nightly">R18&nbsp;500</span></td>
-          <td class="num"><span class="total">R129&nbsp;500</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R18&nbsp;500</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R129&nbsp;500</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/sunset-mansion" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -455,8 +530,8 @@
           <td class="detail">
             7 bedrooms, all en-suite, on the doorstep of the oldest vineyards in the Cape.
           </td>
-          <td class="num"><span class="nightly">R23&nbsp;000</span></td>
-          <td class="num"><span class="total">R161&nbsp;000</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R23&nbsp;000</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R161&nbsp;000</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/velvet-villa" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -472,8 +547,8 @@
             property.
             <span class="terms">Available 4 Jan &ndash; 10 Feb 2027; longer stays negotiable with the owner.</span>
           </td>
-          <td class="num"><span class="nightly">R50&nbsp;000</span></td>
-          <td class="num"><span class="total">R350&nbsp;000</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R50&nbsp;000</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R350&nbsp;000</span></td>
           <td class="link">
             <a class="view" href="https://villasincapetown.com/listings/constantia-grande-and-den" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -493,8 +568,8 @@
             8-bedroom property with two splash pools and a jacuzzi, available for the full duration.
             <span class="terms">Accommodation only &middot; maximum 16 guests &middot; no filming.</span>
           </td>
-          <td class="num"><span class="nightly">R98&nbsp;417</span></td>
-          <td class="num"><span class="total">R2&nbsp;558&nbsp;834</span></td>
+          <td class="num" data-label="Per night"><span class="nightly">R98&nbsp;417</span></td>
+          <td class="num" data-label="Stay total"><span class="total">R2&nbsp;558&nbsp;834</span></td>
           <td class="link">
             <a class="view" href="https://capeagents.co.za/details?property_id=cb155" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
@@ -508,8 +583,8 @@
             Available for the whole stay. The link opens the listing with the dates and guest
             count already set: 30 December 2026 to 25 January 2027, 16 adults.
           </td>
-          <td class="num"><span class="soft">On the listing</span></td>
-          <td class="num"><span class="soft">On the listing</span></td>
+          <td class="num" data-label="Per night"><span class="soft">On the listing</span></td>
+          <td class="num" data-label="Stay total"><span class="soft">On the listing</span></td>
           <td class="link">
             <a class="view" href="https://www.airbnb.co.za/rooms/53244874?adults=16&amp;check_in=2026-12-30&amp;check_out=2027-01-25" target="_blank" rel="noopener">View <span class="arrow">&rarr;</span></a>
           </td>
